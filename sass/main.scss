@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap');
+
+$bleu : #508bce;
+
+body {
+    margin:0;
+}
+
+a {
+    text-decoration : none;
+    color : inherit;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1{
+    font-family: "Shrikhand", "cursive";
+    font-weight: 300;
+}
+
+/* HEADER */
+
+.header{
+    height: 80px;
+    background-color: $bleu;
+    box-shadow: 0 0 5px 2px #000;
+    display: block;
+
+    &__logo{
+        height: 80px;
+    }
+
+    &__nav{
+        //font-size: 30px;
+        i {
+            margin:0 10px;
+            cursor:pointer;
+        }
+    }
+}
+
+.presentation{
+    margin-top: 20px;
+
+    &__titre {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    &__soustitre {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+.carte{
+    box-shadow: 0 0 10px 2px #ccc;
+    border:1px solid #ddd;
+    &:hover{
+	    animation: shadow-drop-center 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+}
+
+.bouton-voir-produit{
+    background-color: $bleu;
+    &:hover{
+        background-color: darken($color: $bleu, $amount: 20);
+    }
+}
+
+
+.detail-produit{
+
+    &__titre {
+        font-size: 1.8rem;
+        text-align: center;    
+    }
+}
+
+
+.footer {
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+
+/* ANIMATIONS */
+
+@keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}

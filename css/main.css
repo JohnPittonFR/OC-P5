@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-family: "Shrikhand", "cursive";
+  font-weight: 300;
+}
+
+/* HEADER */
+.header {
+  height: 80px;
+  background-color: #508bce;
+  -webkit-box-shadow: 0 0 5px 2px #000;
+          box-shadow: 0 0 5px 2px #000;
+  display: block;
+}
+
+.header__logo {
+  height: 80px;
+}
+
+.header__nav i {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.presentation {
+  margin-top: 20px;
+}
+
+.presentation__titre {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.presentation__soustitre {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.carte {
+  -webkit-box-shadow: 0 0 10px 2px #ccc;
+          box-shadow: 0 0 10px 2px #ccc;
+  border: 1px solid #ddd;
+}
+
+.carte:hover {
+  -webkit-animation: shadow-drop-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: shadow-drop-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.bouton-voir-produit {
+  background-color: #508bce;
+}
+
+.bouton-voir-produit:hover {
+  background-color: #285990;
+}
+
+.detail-produit__titre {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.footer {
+  height: 50px;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+@keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+/*# sourceMappingURL=main.css.map */
