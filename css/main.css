@@ -74,6 +74,11 @@ h1 {
   text-align: center;
 }
 
+.panier__titre {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
 .footer {
   height: 50px;
 }
