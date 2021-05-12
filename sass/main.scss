@@ -24,17 +24,14 @@ h1{
 /* HEADER */
 
 .header{
-    height: 80px;
+    height: 40px;
     background-color: $bleu;
     box-shadow: 0 0 5px 2px #000;
     display: block;
 
-    &__logo{
-        height: 80px;
-    }
-
     &__nav{
-        //font-size: 30px;
+        height: 40px;
+        position: relative;
         i {
             margin:0 10px;
             cursor:pointer;
@@ -42,16 +39,33 @@ h1{
     }
 }
 
+#nbPanier{
+    background-color: #ba0505;
+    color:#fff;
+    border-radius:100%;
+    display:flex;
+    width: 1rem;
+    height: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    position: absolute;
+    font-weight: bold;
+    top:5px;
+    right: 15px;
+    display:none;
+}
+
 .presentation{
-    margin-top: 20px;
+    margin-top: 10px;
 
     &__titre {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         text-align: center;
     }
 
     &__soustitre {
-        font-size: 1.2rem;
+        font-size: 1.0rem;
         text-align: center;
     }
 }
@@ -64,7 +78,8 @@ h1{
     }
 }
 
-.bouton-voir-produit{
+.bouton-voir-produit,
+#boutonajout {
     background-color: $bleu;
     &:hover{
         background-color: darken($color: $bleu, $amount: 20);
@@ -88,13 +103,21 @@ h1{
     }
 }
 
+.vignettePanier{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
 
 .footer {
     height: 50px;
 }
 
 
-
+.input-form:invalid {
+  border: red solid 2px;
+}
 
 
 

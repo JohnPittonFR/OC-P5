@@ -11,42 +11,77 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://kit.fontawesome.com/bdbc2f64df.js"
-        crossorigin="anonymous"></script>
-    <script src="js/panier.js"></script>
+    <script src="https://kit.fontawesome.com/bdbc2f64df.js" crossorigin="anonymous"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/panier.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <header class="header container-fluid">
-        <div class="row">
-            <div class="col-6 text-center offset-3">
-                <img src="images/logo.png"
-                    alt="Orinoco photos"
-                    class="header__logo ">
+        <nav class="row">
+            <div class="col-6 text-left">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Orinoco photos" class="header__logo ">
+                </a>
             </div>
-            <nav
-                class="col-3 header__nav d-flex align-items-center justify-content-end h4">
-                <i class="fas fa-user"></i>
-                <a href="panier.html"><i
-                        class="fas fa-shopping-cart"></i></a>
-            </nav>
-        </div>
+            <div class="col-6 header__nav d-flex align-items-center justify-content-end h4">
+                <a href="panier.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="nbPanier"></span>
+                </a>
+            </div>
+        </nav>
     </header>
 
     <main class="px-1">
-        <div class="container mt-5">
+        <section class="container mt-5">
             <div class="row panier" id="panier">
                 <div class="col-12">
                     <h1 class="panier__titre">Contenu de votre panier</h1>
                 </div>
             </div>
-        </div>
+        </section>
+        <section>
+            <h2>Afin de valider votre commande, merci de remplir le formulaire ci-dessous</h2>
+                <form id="form">
+                    <div class="form-group">
+                        <input type="text" pattern="[A-Za-z]+" required
+                            name="lastName" id="lastName" placeholder="Nom*"
+                            class="input-form">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" pattern="[A-Za-z]+" required
+                            name="firstName" id="firstName"
+                            placeholder="Prénom*" class="input-form">
+                    </div>
+                    <div class="form-group">
+                        <input type="text"
+                            pattern="^[0-9]{1,4}[ ,-][ A-Za-zÀ-ÿ0-9\-]+$"
+                            required name="adress" id="address"
+                            placeholder="Adresse de livraison*"
+                            class="input-form">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" pattern="^[A-Z]{1}[a-zA-Z\- ]+$"
+                            required name="city" id="city"
+                            placeholder="Ville*" class="input-form">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" required name="email" id="email"
+                            placeholder="Email*" class="input-form">
+                    </div>
+                    <div class="error" id="invalid-form"></div>
+                    <div class="form-group">
+                        <button type="submit" class="btn" id="sendForm"
+                            onclick="sendData()">Confirmer</button>
+                    </div>
+                </form>
+        </section>
     </main>
 
-    <footer
-        class="bg-dark footer mt-5 d-flex align-items-center justify-content-center">
-        <div class="text-info">Orinoco 2021</div>
+    <footer class="bg-dark footer mt-5 d-flex align-items-center justify-content-center">
+        <div class="text-info">© Orinoco 2021</div>
     </footer>
 </body>
 

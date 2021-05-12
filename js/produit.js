@@ -57,7 +57,8 @@ function afficheProduit(data) {
             id : data._id,
             nom : data.name,
             lentille : select.value,
-            prix : data.price/100,
+            prix : data.price,
+            image : data.imageUrl,
             quantite : 1
         }
         // On récupère le panier stocké en local storage
@@ -73,6 +74,7 @@ function afficheProduit(data) {
             if(article.id == articlechoisi.id && article.lentille == articlechoisi.lentille)
             {
                 article.quantite+=1
+                article.prix+=articlechoisi.prix
                 existant = 1
             } 
         })

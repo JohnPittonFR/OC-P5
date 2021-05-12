@@ -1,5 +1,3 @@
-const urlAPI = 'http://localhost:3000/api/cameras';
-
 // Execution de la page, on attend que les produits soient récupérés pour lancer l'affichage
 (async function () {
     const produits = await getProduits()
@@ -9,7 +7,7 @@ const urlAPI = 'http://localhost:3000/api/cameras';
 
 // Fonction de récupération des produits
 async function getProduits() {
-    let response = await fetch(urlAPI)
+    let response = await fetch(urlAPIget)
     let data = await response.json() 
     .catch((error) => {
         alert("Connexion au serveur impossible")
