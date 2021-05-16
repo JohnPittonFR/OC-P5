@@ -18,6 +18,10 @@ h1 {
   font-weight: 300;
 }
 
+main {
+  min-height: 400px;
+}
+
 /* HEADER */
 .header {
   height: 40px;
@@ -116,8 +120,8 @@ h1 {
   height: 50px;
 }
 
-.input-form:invalid {
-  border: red solid 2px;
+.supprimerarticle {
+  cursor: pointer;
 }
 
 /* ANIMATIONS */

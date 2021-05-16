@@ -6,24 +6,26 @@ affichePanier(panier);
 // Affichage du contenu du panier
 function affichePanier(panier) {
     let contenupanier = document.getElementById('panier');
+    let formulairepanier = document.getElementById('sectionform');
     // Si le panier est vide
     if(panier.length == 0)
     {
         let textepanier = 
-            '<p>Votre panier est vide</p>'+
-            '<a href="index.html"><button class="btn btn-info">Continuer vos achats</button></a>'
+            '<div class="col-12 text-center mt-2">Votre panier est vide</div>'+
+            '<div class="col-12 text-center mt-4"><a href="index.html"><button class="btn btn-info">Continuer vos achats</button></a></div>'
         contenupanier.innerHTML += textepanier
+        formulairepanier.style.display = "none"
     }
     // Si le panier comporte au moins un article 
     else 
     {
-        let textepanier = '<table><tr><th></th><th>Désignation</th><th>Qte</th><th>Prix</th><th></th></tr>'
+        let textepanier = '<table class="col-12 text-center mt-2 table-bordered"><tr><th class="d-none d-sm-block"></th><th>Désignation</th><th>Qte</th><th>Prix</th><th></th></tr>'
         // On instancie une variable i qui permettra de définir l'ordre de l'article dans le panier
         let i = 0
         let totalPanier = 0
         panier.forEach((produit) => {
             textepanier += `<tr>
-                <td><img src="${produit.image}" class="vignettePanier"></td>
+                <td class="p-2 d-none d-sm-block"><img src="${produit.image}" class="vignettePanier"></td>
                 <td><a href="produit.html?id=${produit.id}" target="_self">${produit.nom} - ${produit.lentille}</a></td>
                 <td>${produit.quantite}</td>
                 <td>${produit.prix/100}.00 €</td>
@@ -34,9 +36,9 @@ function affichePanier(panier) {
         })
         textepanier += '</table>'
         // On affiche le montant total des articles du panier
-        textepanier += `<p>Montant total : ${totalPanier/100}.00 €</p>`
+        textepanier += `<div class="col-12 text-center mt-4">Montant total : ${totalPanier/100}.00 €</div>`
         // On affiche un bouton permettant de vider la totalité du panier
-        textepanier += '<button id="supprimertout" class="btn btn-danger">Vider le panier<i class="fas fa-trash-alt"></i></button>'
+        textepanier += '<div class="col-12 text-center mt-4"><button id="supprimertout" class="btn btn-danger">Vider le panier<i class="fas fa-trash-alt"></i></button></div>'
         contenupanier.innerHTML += textepanier
     }
 
