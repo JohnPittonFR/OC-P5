@@ -1,5 +1,4 @@
-
-
+const urlAPI = 'http://localhost:3000/api/cameras/order';
 affichePanier(panier);
 
 
@@ -68,4 +67,91 @@ boutonsSuppTout.addEventListener("click", function (event) {
     // On supprime le panier du local storage
     localStorage.removeItem('panier')
     window.location.reload()
+})
+
+
+
+// Check en temps réeel des saisies du formulaire
+
+const form = document.getElementById("form");
+
+// On check chaque modification du formulaire pour savoir si on active le bouton validation
+addEventListener("input", function(e) {
+    let checkForm = testFormulaire()
+    if (checkForm == 0)
+    {
+        document
+            .getElementById("valideFormulaire")
+            .removeAttribute("disabled")
+    } else {
+        document
+            .getElementById("valideFormulaire")
+            .setAttribute("disabled", false);
+    }
+})
+
+// Fonction qui permet de tester chaque champ du formulaire
+function testFormulaire() {
+    let lastName = document.getElementById('lastName')
+	let firstName = document.getElementById('firstName')
+	let address = document.getElementById('address')
+	let city = document.getElementById('city')
+	let email = document.getElementById('email')
+    if (!lastName.checkValidity()) return 1;
+    if (!firstName.checkValidity()) return 1;
+    if (!address.checkValidity()) return 1;
+    if (!city.checkValidity()) return 1;
+    if (!email.checkValidity()) return 1;
+    return 0;
+}
+
+// Validation du formulaire
+let boutonValidationFormulaire = document.getElementById('valideFormulaire');
+boutonValidationFormulaire.addEventListener("click", function (event) {
+    event.preventDefault();
+    // On met toutes les données saisies dans le formulaire dans un objet contact
+    let lastName = document.getElementById('lastName')
+	let firstName = document.getElementById('firstName')
+	let address = document.getElementById('address')
+	let city = document.getElementById('city')
+	let email = document.getElementById('email')  
+    let contact = {
+        lastName: lastName.value,
+        firstName: firstName.value,
+        email: email.value,
+        city: city.value,
+        address: address.value
+    };
+    let products = []
+    let totalPanier = 0
+    // On rempli un tableau products avec les id des articles présents dans le panier, on calcule aussi le total du panier
+    panier.forEach((produit) => {
+        products.push(produit.id)
+        totalPanier+= produit.prix
+    })
+    // On stocke l'objet contact et le tableau products dans une variable que l'on va passer au serveur
+    infosCommande = { contact, products };
+    let params = {
+        method: "POST",
+        body: JSON.stringify(infosCommande),
+        headers: { "Content-type": "application/json" }
+    };
+    // On appelle la route du serveur en utilisant les paramètres définis et la variable contenant nos informations
+    fetch(urlAPI, params)
+        .then(response => response.json())
+        // On stocke la réponse dans un objet commande
+        .then(function (commande) {
+            let orderId = commande.orderId
+            // On fait une variable récapitulatif qui contient l'orderId et le montantn total
+            let recapitulatif = {orderId, totalPanier}
+            // On stocke cette variable dans le local storage
+            localStorage.setItem("commande", JSON.stringify(recapitulatif))
+            // On supprime le panier stocké dans le local storage
+            localStorage.removeItem('panier')
+            // On redirige vers la page de confirmation
+            window.location = "confirmation.html";
+        })
+        .catch(error => {
+            alert("Connexion au serveur impossible")
+        });    
 })

@@ -47,23 +47,22 @@
             <h5 class="text-center mt-3">Afin de valider votre commande, merci de remplir le formulaire ci-dessous</h5>
             <form id="form" class="col-12 mt-4 text-center">
                 <div class="form-group">
-                    <input type="text" required name="lastName" id="lastName" placeholder="Nom*" class="input-form">
+                    <input type="text" class="p-1" required name="lastName" id="lastName" placeholder="Nom*" pattern="[A-Za-z]+" minlength="1">
                 </div>
                 <div class="form-group">
-                    <input type="text" required name="firstName" id="firstName" placeholder="Prénom*" class="input-form">
+                    <input type="text" class="p-1" required name="firstName" id="firstName" placeholder="Prénom*" pattern="[A-Za-z]+" minlength="2">
                 </div>
                 <div class="form-group">
-                    <input type="text" required name="adress" id="address" placeholder="Adresse de livraison*" class="input-form">
+                    <input type="text" class="p-1" required name="adress" id="address" placeholder="Adresse de livraison*" minlength="5">
                 </div>
                 <div class="form-group">
-                    <input type="text" required name="city" id="city" placeholder="Ville*" class="input-form">
+                    <input type="text" class="p-1" required name="city" id="city" placeholder="Ville*" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" minlength="3">
                 </div>
                 <div class="form-group">
-                    <input type="email" required name="email" id="email" placeholder="Email*" class="input-form">
+                    <input type="email" class="p-1" required name="email" id="email" placeholder="Email*">
                 </div>
-                <div class="error" id="invalid-form"></div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success" id="sendForm" onclick="sendData()">Confirmer</button>
+                    <button type="submit" class="btn btn-success p-1" id="valideFormulaire" disabled>Confirmer</button>
                 </div>
             </form>
         </section>
