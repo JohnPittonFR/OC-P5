@@ -1,4 +1,3 @@
-const urlAPI = 'http://localhost:3000/api/cameras/order';
 affichePanier(panier);
 
 
@@ -137,7 +136,7 @@ boutonValidationFormulaire.addEventListener("click", function (event) {
         headers: { "Content-type": "application/json" }
     };
     // On appelle la route du serveur en utilisant les paramètres définis et la variable contenant nos informations
-    fetch(urlAPI, params)
+    fetch(urlAPIpost, params)
         .then(response => response.json())
         // On stocke la réponse dans un objet commande
         .then(function (commande) {
